@@ -1,2 +1,2 @@
 # bulls-and-cows
-bulls and cows je hra o hadani cisla pomoci napoved 
+Hra je pro dva hráče, z nichž jeden si myslí tajné čtyřmístné číslo s unikátními číslicemi a druhý se ho snaží uhodnout pomocí postupných tipů. Po každém vysloveném tipu oznámí zadavatel hádajícímu počet býků a krav, přičemž býk značí uhodnutou číslici na správné pozici a kráva uhodnutou číslici na špatné pozici. Tento proces se opakuje, dokud hádající neodhalí celou kombinaci, tedy dokud nezíská čtyři býky.
