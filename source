@@ -7,8 +7,30 @@ discord: reet00#4702
 
 import random
 
-cislice = [0,1,2,3,4,5,6,7,8,9]
 
-hadane_cislo = random.sample(cislice, 4)
+print(
+"""
++=================================+
+|                                 |
+|     B U L L S   &   C O W S     |
+|                                 |
+|    napiš 'info' pro pravidla    |
+|     napiš 'start' pro start     |
++=================================+
+""")
 
-print(hadane_cislo)
+
+while True:
+    prvni = input("")
+    if prvni == "info":
+        print(40 * "-")
+        print("Hra je pro dva hráče, z nichž jeden si myslí tajné čtyřmístné číslo s unikátními číslicemi a druhý se ho snaží uhodnout pomocí postupných tipů.\nPo každém vysloveném tipu oznámí zadavatel hádajícímu počet býků a krav, přičemž býk značí uhodnutou číslici na správné pozici a kráva uhodnutou číslici na špatné pozici.\nTento proces se opakuje, dokud hádající neodhalí celou kombinaci, tedy dokud nezíská čtyři býky.\n\nZADÁVANÁ ČÍSLA MUSÍ SPLŇOVAT:\n- musí být čtyřciferné\n- nesmí obsahovat duplicitní čísla\n- musí být číslo\nPokud jsi připraven, napiš 'start'")
+        print(40 * "-")
+    elif prvni == "start":
+        break
+
+tip = input("Zadej číslo bejku: ")
+if tip.isdigit():
+    print("spravne")
+else:
+    print("Tvé číslo nesplňuje podmínky.")
