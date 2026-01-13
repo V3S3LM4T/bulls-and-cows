@@ -24,13 +24,34 @@ while True:
     prvni = input("")
     if prvni == "info":
         print(40 * "-")
-        print("Hra je pro dva hráče, z nichž jeden si myslí tajné čtyřmístné číslo s unikátními číslicemi a druhý se ho snaží uhodnout pomocí postupných tipů.\nPo každém vysloveném tipu oznámí zadavatel hádajícímu počet býků a krav, přičemž býk značí uhodnutou číslici na správné pozici a kráva uhodnutou číslici na špatné pozici.\nTento proces se opakuje, dokud hádající neodhalí celou kombinaci, tedy dokud nezíská čtyři býky.\n\nZADÁVANÁ ČÍSLA MUSÍ SPLŇOVAT:\n- musí být čtyřciferné\n- nesmí obsahovat duplicitní čísla\n- musí být číslo\nPokud jsi připraven, napiš 'start'")
+        #print("Hra je pro dva hráče, z nichž jeden si myslí tajné čtyřmístné číslo s unikátními číslicemi a druhý se ho snaží uhodnout pomocí postupných tipů.\nPo každém vysloveném tipu oznámí zadavatel hádajícímu počet býků a krav, přičemž býk značí uhodnutou číslici na správné pozici a kráva uhodnutou číslici na špatné pozici.\nTento proces se opakuje, dokud hádající neodhalí celou kombinaci, tedy dokud nezíská čtyři býky.\n\nZADÁVANÁ ČÍSLA MUSÍ SPLŇOVAT:\n- musí být čtyřciferné\n- nesmí obsahovat duplicitní čísla\n- musí být číslo\nPokud jsi připraven, napiš 'start'")
+        print("Myslím si tajné 4místné číslo s unikátními číslicemi.\nTvým úkolem je ho uhodnout pomocí nápověd.\nBulls = správné číslo na správném místě.\nCows  = správné číslo na špatném místě.")
+        print(40 * "-")
+        print("Pokud jsi připraven, napiš 'start'")
         print(40 * "-")
     elif prvni == "start":
         break
 
-tip = input("Zadej číslo bejku: ")
-if tip.isdigit():
-    print("spravne")
-else:
-    print("Tvé číslo nesplňuje podmínky.")
+cislice = list("0123456789")
+vyber = random.sample(cislice, 4)
+
+pokusy = 0
+uhadnuto = False
+
+while not uhadnuto:
+    podminky = 3
+    tip = input("Zadej číslo bejku: ")
+    
+    if not tip.isdigit():
+        podminky = podminky - 1    
+    if len(tip) != 4:
+        podminky = podminky - 1       
+    if len(set(tip)) != 4:
+        podminky = podminky - 1
+    if podminky != 3:
+        print("Tohle číslo nesplňuje podmínky lil bro :(")
+    if podminky == 3:
+        continue        
+
+print(tip)
+print(vyber)
