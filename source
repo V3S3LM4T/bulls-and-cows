@@ -49,7 +49,7 @@ while not uhadnuto:
         podminky = podminky - 1
     if podminky != 3:
         print("Tohle číslo nesplňuje podmínky lil bro :(")
-        SystemExit
+        #SystemExit - 
     elif podminky == 3:
         cows = 0
         bulls = 0
