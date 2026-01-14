@@ -40,7 +40,7 @@ uhadnuto = False
 
 while not uhadnuto:
     podminky = 3
-    tip = input("Zadej číslo bejku: ")
+    tip = input("Zadej číslo: ")
     if not tip.isdigit():
         podminky = podminky - 1    
     if len(tip) != 4:
@@ -48,7 +48,7 @@ while not uhadnuto:
     if len(set(tip)) != 4:
         podminky = podminky - 1
     if podminky != 3:
-        print("Tohle číslo nesplňuje podmínky lil bro :(")
+        print("Tohle číslo nesplňuje podmínky :(")
         #SystemExit - 
     elif podminky == 3:
         cows = 0
