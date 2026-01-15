@@ -7,7 +7,7 @@ discord: reet00#4702
 
 import random
 
-
+#uvodni menu
 print(
 """
 +=================================+
@@ -19,52 +19,71 @@ print(
 +=================================+
 """)
 
+#random definice kterou pouziju presne trikrat
+def cara():
+    print(40 * "-")
+
+    
+
+
+
 
 while True:
     prvni = input("")
     if prvni == "info":
-        print(40 * "-")
+        cara()
         #print("Hra je pro dva hráče, z nichž jeden si myslí tajné čtyřmístné číslo s unikátními číslicemi a druhý se ho snaží uhodnout pomocí postupných tipů.\nPo každém vysloveném tipu oznámí zadavatel hádajícímu počet býků a krav, přičemž býk značí uhodnutou číslici na správné pozici a kráva uhodnutou číslici na špatné pozici.\nTento proces se opakuje, dokud hádající neodhalí celou kombinaci, tedy dokud nezíská čtyři býky.\n\nZADÁVANÁ ČÍSLA MUSÍ SPLŇOVAT:\n- musí být čtyřciferné\n- nesmí obsahovat duplicitní čísla\n- musí být číslo\nPokud jsi připraven, napiš 'start'")
         print("Myslím si tajné 4místné číslo s unikátními číslicemi.\nTvým úkolem je ho uhodnout pomocí nápověd.\nBulls = správné číslo na správném místě.\nCows  = správné číslo na špatném místě.")
-        print(40 * "-")
+        cara()
         print("Pokud jsi připraven, napiš 'start'")
-        print(40 * "-")
+        cara()
     elif prvni == "start":
         break
 
-cislice = list("0123456789")
-vyber = random.sample(cislice, 4)
 
+cislicove_cisla = list("0123456789")
+
+
+number = 0
+
+cislice = []
+
+cislo = str(random.randint(1, 9))
+cislice.append(cislo)
+cislicove_cisla.remove(str(cislo))
+
+cislice.extend(random.sample(cislicove_cisla, 3))
+
+print(cislice)
 pokusy = 0
-uhadnuto = False
+tip = 0
+while True:
+    tip = list(input("zadej číslo:   ")) #udela z tipu list
+    print(tip)
 
-while not uhadnuto:
-    podminky = 3
-    tip = input("Zadej číslo: ")
-    if not tip.isdigit():
-        podminky = podminky - 1    
-    if len(tip) != 4:
-        podminky = podminky - 1       
-    if len(set(tip)) != 4:
-        podminky = podminky - 1
-    if podminky != 3:
-        print("Tohle číslo nesplňuje podmínky :(")
-        #SystemExit - 
-    elif podminky == 3:
+    if len(tip) == 4 and tip[0] != "0" and len(set(tip)) == 4 and "".join(tip).isnumeric():
+        
+
+    
         cows = 0
         bulls = 0
 
-    for i in range(4):
+#vyhodnoceni tipu 
+        for i in range(4):
+            if cislice[i] in tip:
+                if cislice[i] == tip[i]:
+                    bulls += 1
+                else:
+                    cows += 1
+        print(f"bulls: {bulls}, cows: {cows}")
         pokusy += 1
-    if tip[i] == vyber[i]:
-            bulls += 1
-    if tip[i] in vyber[i]:
-            cows += 1
-            
-    print(f"bulls: {bulls}, Cows: {cows}")
-    if bulls == 4:
-         uhadnuto = True
-         print("vyhral jsi")    
 
-print(tip)
-print(vyber)
+#zaver hry
+        if bulls == 4:
+            print(f"gratuluji, vyhral jsi!\nPotřeboval jsi jen {pokusy} pokusy")
+            break
+    else:
+        print("špatnej input")     
+
+        
+
