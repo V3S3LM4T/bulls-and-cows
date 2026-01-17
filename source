@@ -7,7 +7,7 @@ discord: reet00#4702
 
 import random
 
-#   uvodni menu
+#   uvodni text
 print(
 """
 +=================================+
@@ -47,7 +47,7 @@ cislice.append(cislo)
 cislicove_cisla.remove(str(cislo))
 cislice.extend(random.sample(cislicove_cisla, 3))
 
-#print(cislice)
+print(cislice)
 
 pokusy = 0
 tip = 0
@@ -70,7 +70,14 @@ while True:
                     bulls += 1
                 else:
                     cows += 1
-        print(f"bulls: {bulls}, cows: {cows}")
+        if bulls == 1 and cows == 1:
+            print(f"{bulls} bull, {cows} cow")
+        elif bulls ==1 and cows > 1:
+            print(f"{bulls} bull, {cows} cows")
+        elif bulls > 1 and cows == 1:
+            print(f"{bulls} bulls, {cows} cow")
+        else:
+            print(f"{bulls} bulls, {cows} cows")
         pokusy += 1
 
 #   zaver hry
@@ -80,4 +87,3 @@ while True:
     else:
         print("zadané číslo nesplňuje podmínky")  
         
-
