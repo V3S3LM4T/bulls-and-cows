@@ -47,7 +47,7 @@ cislice.append(cislo)
 cislicove_cisla.remove(str(cislo))
 cislice.extend(random.sample(cislicove_cisla, 3))
 
-print(cislice)
+
 
 pokusy = 0
 tip = 0
